@@ -1,12 +1,9 @@
 const express = require('express');
 const app = express();
 const mongojs = require('mongojs');
-const dbChat = mongojs('chatDB1', ['users', 'charroom']);
-const bodyParser = require('body-parser');
+const dbChat = mongojs('mongodb+srv://root:2831Roger@cluster0.mgm3e.mongodb.net/chatDB1?retryWrites=true&w=majority', ['users', 'charroom']);
 const morgan = require('morgan');
 
-app.use(express.static(__dirname + '/public/pickUser'));
-app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.get('/Chat', (req, res) => {
